@@ -1,0 +1,41 @@
+2. Create Custom Object
+
+Go to:
+
+Setup → Object Manager → Create → Custom Object
+
+Create the object with:
+
+Field	Value
+Label	Student
+Plural Label	Students
+Object Name	Student
+Record Name	Student Name
+Data Type	Text
+
+Click Save.
+
+3. Create Custom Fields
+
+Now create the required fields inside Student__c.
+
+Go to:
+
+Object Manager → Student → Fields & Relationships → New
+
+A. Roll Number Field
+Property	Value
+Data Type	Number
+Field Label	Roll No
+Length	10
+
+B. Class Field
+Property	Value
+Data Type	Text
+Field Label	Class
+Length	50
+
+C. Mobile Number Field
+Property	Value
+Data Type	Phone
+Field Label	Mobile No

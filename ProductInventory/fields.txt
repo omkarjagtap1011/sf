@@ -1,0 +1,58 @@
+Step 1: Create Custom Object
+
+Go to:
+
+Setup → Object Manager → Create → Custom Object
+
+Fill:
+
+Field	Value
+Label	Product
+Plural Label	Products
+Object Name	Product
+Record Name	Product Name
+Data Type	Text
+
+Click Save.
+
+Step 2: Create Custom Fields
+
+Inside Product__c object:
+
+Go to:
+
+Fields & Relationships → New
+
+A) Serial Number Field
+Property	Value
+Data Type	Text
+Field Label	Serial No
+Length	50
+
+API Name becomes:
+
+Serial_No__c
+
+Save.
+
+B) Manufacture Date Field
+Property	Value
+Data Type	Date
+Field Label	Manufacture Date
+
+API Name:
+
+Manufacture_Date__c
+
+Save.
+
+C) Expiry Date Field
+Property	Value
+Data Type	Date
+Field Label	Expiry Date
+
+API Name:
+
+Expiry_Date__c
+
+Save.

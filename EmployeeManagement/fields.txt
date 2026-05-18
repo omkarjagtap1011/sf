@@ -1,0 +1,40 @@
+Create Object
+Field	Value
+Label	Employee
+Plural Label	Employees
+Object Name	Employee
+Record Name	Employee ID
+Data Type	Text
+
+Click Save.
+
+Salesforce automatically creates:
+
+Employee__c
+Name field (used as Employee ID)
+Step 3: Create Custom Fields
+
+Now create these fields inside Employee__c.
+
+1. Employee Name
+Property	Value
+Field Type	Text
+Label	Emp Name
+API Name	Emp_Name__c
+2. Email
+Property	Value
+Field Type	Email
+Label	Email
+API Name	Email__c
+3. Birth Date
+Property	Value
+Field Type	Date
+Label	Birth Date
+API Name	Birth_Date__c
+4. Department
+Property	Value
+Field Type	Text
+Label	Department
+API Name	Department__c
+
+Click Save after each field.

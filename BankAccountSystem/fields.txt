@@ -1,0 +1,28 @@
+Step 1: Create Custom Object
+
+Go to:
+
+Setup → Object Manager → Create → Custom Object
+
+Create object:
+
+Property	Value
+Label	Bank Account
+Plural Label	Bank Accounts
+Object Name	Bank_Account
+Record Name	Account Number
+Data Type	Text
+Step 2: Create Custom Fields
+
+Inside Bank_Account__c, create these fields:
+
+Field Label	API Name	Type
+Customer Name	Customer_Name__c	Text
+Balance	Balance__c	Currency
+Account Type	Account_Type__c	Picklist
+
+Picklist Values:
+
+Savings
+Current
+Salary
