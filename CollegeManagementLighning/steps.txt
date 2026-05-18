@@ -1,0 +1,261 @@
+Step-by-Step: College Management Lightning Application
+1. Create a Custom Lightning App
+
+Go to:
+
+Setup → App Manager → New Lightning App
+
+Fill details:
+
+App Name: College Management System
+Utility items: optional
+Navigation Style: Standard Navigation
+
+Add these items to navigation later:
+
+Students
+Faculty
+
+Save and Finish.
+
+2. Create Custom Object: Student
+
+Go to:
+
+Setup → Object Manager → Create → Custom Object
+
+Object Details
+Field	Value
+Label	Student
+Plural Label	Students
+Record Name	Student Name
+Data Type	Text
+
+Enable:
+
+Allow Reports
+Allow Activities
+
+Save.
+
+3. Create Student Fields
+
+Inside Student Object → Fields & Relationships
+
+Create the following fields:
+
+Field Label	Data Type
+Roll Number	Number
+Marks	Number
+Email	Email or Text
+Student Name	Text
+
+Note: Record Name already stores student name, so separate Student Name field is optional.
+
+4. Student Validation Rules
+
+Go to:
+
+Student Object → Validation Rules → New
+
+Validation 1: Marks Between 0 and 100
+Rule Name
+
+Marks_Validation
+
+Formula
+OR(
+    Marks__c < 0,
+    Marks__c > 100
+)
+Error Message
+Marks should be between 0 and 100.
+
+Choose:
+
+Field: Marks
+
+Save.
+
+Validation 2: Roll Number Greater Than 0
+Rule Name
+
+Roll_Number_Validation
+
+Formula
+Roll_Number__c <= 0
+Error Message
+Roll Number must be greater than 0.
+
+Save.
+
+Validation 3: Email Must Contain @
+
+If Email field type is Text:
+
+Formula
+NOT(CONTAINS(Email__c, "@"))
+Error Message
+Email must contain @ symbol.
+
+If you use Salesforce Email field type, this validation is automatically handled.
+
+Save.
+
+Validation 4: Student Name Cannot Be Blank
+
+If using custom Student_Name__c field:
+
+Formula
+ISBLANK(Student_Name__c)
+Error Message
+Student name cannot be blank.
+
+Save.
+
+If using Record Name field, Salesforce already prevents blank values.
+
+5. Create Custom Object: Faculty
+
+Go to:
+
+Setup → Object Manager → Create → Custom Object
+
+Object Details
+Field	Value
+Label	Faculty
+Plural Label	Faculties
+Record Name	Faculty Name
+
+Save.
+
+6. Create Faculty Fields
+
+Create these fields:
+
+Field Label	Data Type
+Faculty ID	Number
+Salary	Currency
+Department	Picklist
+Joining Date	Date
+Department Picklist Values
+
+Example values:
+
+Computer Science
+Mechanical
+Civil
+Electronics
+Mathematics
+Physics
+7. Faculty Validation Rules
+Validation 1: Faculty Name Cannot Be Empty & Minimum 3 Characters
+Formula
+LEN(Name) < 3
+Error Message
+Faculty Name must contain at least 3 characters.
+
+Record Name field already prevents blank values.
+
+Save.
+
+Validation 2: Faculty ID Must Be Greater Than 0
+Formula
+Faculty_ID__c <= 0
+Error Message
+Faculty ID must be greater than 0.
+
+Save.
+
+8. Make Faculty ID Unique
+
+Go to:
+
+Faculty ID Field → Edit
+
+Check:
+
+✅ Unique
+
+Save.
+
+This ensures no duplicate Faculty IDs.
+
+9. Salary Validation
+Formula
+OR(
+    Salary__c <= 10000,
+    Salary__c >= 500000
+)
+Error Message
+Salary must be greater than 10,000 and less than 500,000.
+
+Save.
+
+10. Department Must Be Selected
+
+If Department field is NOT marked required:
+
+Formula
+ISBLANK(TEXT(Department__c))
+Error Message
+Please select a department.
+
+Save.
+
+Easier option:
+Just mark the field as Required while creating it.
+
+11. Joining Date Cannot Be Future Date
+Formula
+Joining_Date__c > TODAY()
+Error Message
+Joining Date cannot be a future date.
+
+Save.
+
+12. Create Tabs for Objects
+
+Go to:
+
+Setup → Tabs → New Custom Object Tab
+
+Create tabs for:
+
+Student
+Faculty
+
+Choose icons/styles.
+
+Save.
+
+13. Add Tabs to Lightning App
+
+Go to:
+
+App Manager → College Management System → Edit → Navigation Items
+
+Add:
+
+Students
+Faculties
+
+Save.
+
+Step 4: Ensure User Profiles Have Access
+
+Still inside app edit wizard:
+
+Go to:
+
+User Profiles Section
+
+Select profiles like:
+
+System Administrator
+Standard User (if needed)
+
+Move them to:
+✅ Visible Profiles
+
+Save.
